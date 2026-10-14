@@ -169,7 +169,8 @@ sequenceDiagram
     C->>UC: execute()
     UC->>UC: valida documento existe e pertence à organização
     UC->>Sess: recupera ou cria ChatSession
-    UC->>Ret: retrieveByDocument(question, topK=5, threshold=0.45)
+    UC->>UC: SessionHistoryService.buildEffectiveHistory(session)<br/>(sessão >10 msgs: resume as antigas via Groq e cacheia,<br/>reusa o resumo cacheado se já cobrir tudo)
+    UC->>Ret: retrieveByDocument(question, topK=5, threshold=0.5)
     alt sem chunks nem histórico
         UC-->>F: evento done (resposta fixa "não encontrei informações", sem chamar LLM)
     else há contexto
@@ -187,6 +188,23 @@ sequenceDiagram
 ```
 
 **Chat em nível de organização** (`ask-organization-stream`) é o mesmo fluxo, mas com `ChatSession.documentId = null`, buscando em todos os documentos da organização (`RetrieverService.retrieve`, com filtro opcional por um documento específico) e montando um `docListContext` extra (lista de nomes de documentos) para o prompt. Qualquer exceção durante o streaming vira um evento `error` no SSE — a conexão nunca cai sem avisar o cliente.
+
+### Citações ricas (2026-10-14)
+
+O `sources` do evento `done` deixou de ser só `{id, content, score, documentId}`. Cada fonte agora chega com:
+- `documentName` — resolvido no próprio use case (já tinha o documento/lista de documentos em mãos, nenhuma query nova).
+- `chunkIndex` — posição do chunk (do chunk-pai, quando existir) dentro do documento, selecionada no `RetrieverAdapter` via `COALESCE(p."chunkIndex", c."chunkIndex")`.
+- `label` — rótulo determinístico montado no backend (`` `${documentName} · trecho ${chunkIndex + 1}` ``), substituindo a heurística que o frontend fazia antes (adivinhar um "tópico" a partir das 2 primeiras palavras do conteúdo).
+
+Número de página exato **não é viável hoje**: a extração de PDF (`CompositeExtractionAdapter`, via `pdf-parse`) devolve uma string já achatada, sem preservar quebras de página — rastrear página exigiria mudar extração + chunking + reindexar tudo. `chunkIndex` é o substituto honesto: uma âncora de posição real, sem prometer uma página que o pipeline não rastreia.
+
+### Resumo de sessões longas
+
+`SessionHistoryService.buildEffectiveHistory` decide o histórico efetivo enviado ao `GeneratorService`:
+- Sessão com ≤10 mensagens: comportamento de sempre, envia tudo.
+- Sessão >10 mensagens: resume as mensagens antigas (todas menos as últimas 4) via `QueryAugmentationAdapter.summarizeHistory` (Groq, `gpt-oss-20b`), cacheia o resumo em `ChatSession.summary`/`summarizedMessageCount`, e usa `[resumo, ...últimas 4 mensagens cruas]` como histórico. Perguntas seguintes na mesma sessão reusam o resumo cacheado (sem chamar o Groq de novo) até que mensagens novas o tornem obsoleto.
+
+Evita reenviar o histórico inteiro no prompt a cada pergunta em conversas longas — sem isso, o contexto (e o custo/latência) cresce sem limite.
 
 ## 5. Editor AI
 

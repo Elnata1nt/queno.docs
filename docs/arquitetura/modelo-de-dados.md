@@ -165,6 +165,8 @@ Conversa de um usuário — pode ser sobre um documento específico ou um chat g
 | `organizationId` | String | não | — | FK → `Organization.id`, `onDelete: Cascade` |
 | `userId` | String | sim | — | dono da sessão (sem FK declarada no schema) |
 | `title` | String | não | — | gerado automaticamente a partir da primeira pergunta |
+| `summary` | String (`@db.Text`) | não | — | resumo cacheado das mensagens antigas, sessões longas (2026-10-14) |
+| `summarizedMessageCount` | Int | sim | `0` | quantas mensagens já estão cobertas pelo `summary` |
 | `document` | Document | — | — | N:1 |
 | `organization` | Organization | — | — | N:1 |
 | `messages` | Message[] | — | — | 1:N → `Message` |
