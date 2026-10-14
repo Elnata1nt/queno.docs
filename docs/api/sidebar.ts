@@ -295,13 +295,13 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "api/users-controller-update-user",
-          label: "Atualiza outro usuário pelo id",
+          label: "Atualiza outro usuário pelo id (apenas admin)",
           className: "api-method patch",
         },
         {
           type: "doc",
           id: "api/users-controller-remove",
-          label: "Remove outro usuário pelo id",
+          label: "Remove outro usuário pelo id (apenas admin)",
           className: "api-method delete",
         },
         {

@@ -1,11 +1,11 @@
 ---
 id: rag-controller-download-document
 title: "Baixa o arquivo original do documento"
-description: "Documentos internos (sem upload de arquivo) são exportados como .docx; documentos de upload retornam o arquivo físico original."
+description: "Documentos internos (sem upload de arquivo) são exportados como .docx por padrão, ou .md com `?format=markdown`; documentos de upload sempre retornam o arquivo físico original (parâmetro `format` é ignorado)."
 sidebar_label: "Baixa o arquivo original do documento"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVE1v00AQ/SurOaBWWpLC0ZzaAlU5oVDEIYqqiXfqrGrvuLvjkmD513DmV/SPobHjJG2BCxLi5P3wvp335r1twVHKo6/Fc4AM3nLeVBSEk/FBKAZO5ihRZZq6ZHTGkcF41/h7Pjbp4TsbWtccBR0nk3PFZuI4X78xbo/jaDwcSTgGrAyPIObm4UfyORuOvvABywlY4Joiaj2XDjKYYXHOQSKXJcVrx1+DYo11goUaI1YkFBNk8xYCVgQZcCww+G8jjoVId42P5CCT2JAFr3RrlBVYSPmKKoSsBdnUejpJ9KGArrM7wJHRX4At9GCqOSRKuv/65EQ/jzugl0KivIleNj2jJWGkCNl8oQiChRLddSqZF2Z2egELCxXJilWzggZhZAUZTLH200M50rR9rE43HcmlabvnqcuD2sqK4v0g8WJf3ielOnAZi2wH/sp7u2S3g/ccKxTI4MOXK7CjOCuRuqfsww33onkpdWN2emHOML+l4MxLc84hNaVMPIJ9Itjpx0ujHjDJJ6EK1XDnK5QlS+/h0hcUhNSevVAWlMhw9tXkBCzkHARzgazVQmpOUmHQWratP0O/xgPTjmY1jvdGf1pX28OqRf+PVG31FlrLtC7RB+gsNLHUSgenzAFrr/k79ApYyJ5laWcX3X0UjJ1jFhZWnERR23aJiT7Hsut0+a6huBl8dI/R41LbPW/B+aRjB9kNlon+IOfRbBu/Y/M7YttFDBvtN5aNzsDCLW2ePw6a8n94+4Fg3aI7iO3FOw0GNtqM3evxJEW9VL/Eb9vhjyu+pdB1u+tE53pT1/0E9FERZw==
+api: eJzdVMFu00AQ/ZXVHFArmaRwNEKoLVCVEwpFHKqITOxJsoq9s51dlwTLP0NPHPiK/BiaOE7SQHuqOHCyvet9b96beVtDTiET66NlBym85awqyUUOxrpI4jiYo0ClqXzBmJucDMpNZW/52ITVHRtaeJaIOQeTccmml3O2MJ7FeMxldceJ4cr0yly3zejNhKXE+LpEmef8zY1emXxHmVPHE6j0QkYosjgsDXe0ZrL6FWzGhsVOrcPCHHmU1Y+SorAZtfAjs/pp7NSxYM7HPUiAPQmqxsscUhjg9JxdFC4Kkq9ah5J22iEBj4IlRZIA6XUNDkuCFFim6Oz3DicBoZvKCuWQRqkoAasWeowzSCBkMyoR0hri0uvpEMW6KTRNsgXspD8JWCv9IaCbimT5KNJQTwbPLlDQ/ZcnJ/q4Px/KCIGySmxcrr0ZEwoJpNdDRYg4Vcu2cxTMMzM4vYBhAiXFGav7U2otjjNIoY/e9veNDf36vs9Nv7Mp9OudY7rc9k1Vkdy2zRruyvukUlstXZF1q191b5aSzcv71r0UPny5gqQzZxajX0u2bsJr02wsdGNwemHOMJuTy81zc84uVEXsWYTkwLDTj5dGp8kEGyKVqDN+PsM45rhOWGGn5CKt06FGJaBC2rMveieQQMYuYhYhrbUQzyGW6LSWTd/P0C5wLyDbYOS8y9ZhXfUaVof9/838poeRFrHvC7QOmgQqKVR9O33XgN7q7bA/f5BA+kfStyOou/diu53CYQIzDlFR63qMgT5L0TS63GZPw5LbgONCoznBItAjTTkabFJ8bB6SMqflfuxvsahoHdGhfohVpqdn3SyiW+5zdtUcGKfX0z9k32tMM2z2rpyLdxpqrLTp25vv4AZYW/VX/Lpu/7jiObmm2dJF/VampvkNYTSOCg==
 sidebar_class_name: "get api-method"
 info_path: docs/api/rag-backend-consult-ia
 custom_edit_url: null
@@ -37,7 +37,7 @@ import Translate from "@docusaurus/Translate";
 
 
 
-Documentos internos (sem upload de arquivo) são exportados como .docx; documentos de upload retornam o arquivo físico original.
+Documentos internos (sem upload de arquivo) são exportados como .docx por padrão, ou .md com `?format=markdown`; documentos de upload sempre retornam o arquivo físico original (parâmetro `format` é ignorado).
 
 <Heading
   id={"request"}

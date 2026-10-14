@@ -1,1 +1,1 @@
-{"parameters":[{"name":"organizationId","required":true,"in":"path","schema":{"type":"string"}},{"name":"documentId","required":true,"in":"path","schema":{"type":"string"}}]}
+{"parameters":[{"name":"organizationId","required":true,"in":"path","schema":{"type":"string"}},{"name":"documentId","required":true,"in":"path","schema":{"type":"string"}},{"name":"format","required":true,"in":"query","schema":{"type":"string"}}]}

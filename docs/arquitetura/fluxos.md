@@ -237,7 +237,7 @@ sequenceDiagram
     C->>Gen2: execute()
     Gen2->>Ret: retrieve(topK=4, threshold=0.3)
     Gen2->>Gen: complete(..., organizationalKnowledge)
-    Gen-->>F: texto gerado
+    Gen-->>F: {completion, sources} (desde 2026-10-14)
 
     F->>C: POST .../editor-ai {action: analyze}
     C->>Ana: execute()
@@ -247,7 +247,39 @@ sequenceDiagram
     Gen-->>F: {completion, sources}
 ```
 
-`analyze` é o único dos quatro que expõe `sources` (nome do documento de origem) explicitamente na resposta.
+`generate`/`develop`/`continue` e `analyze` agora devolvem `sources` enriquecidos (`documentName`, `chunkIndex`, `label`) — até 2026-10-13, só `analyze` fazia isso; `generate-text` buscava os chunks mas descartava o resultado.
+
+### Geração multi-seção com outline (2026-10-14)
+
+```mermaid
+sequenceDiagram
+    participant F as Frontend
+    participant C as EditorAiController
+    participant Out as GenerateOutlineUseCase
+    participant Full as GenerateFromOutlineUseCase
+    participant Ret as RetrieverService
+    participant Gen as GeneratorService
+
+    F->>C: POST .../editor-ai {action: generate_outline, title}
+    C->>Out: execute()
+    Out->>Out: QueryAugmentationAdapter.generateOutline (Groq, 1 chamada)
+    Out-->>F: {sections: string[]}
+    F->>F: usuário revisa/edita os headings
+
+    F->>C: POST .../editor-ai {action: generate_from_outline, title, outline}
+    C->>Full: execute()
+    loop para cada heading (sequencial, não paralelo)
+        Full->>Ret: retrieve(`${title} ${heading}`, topK=4, threshold=0.3)
+        Full->>Gen: complete(prompt da seção, organizationalKnowledge)
+        Gen-->>Full: conteúdo da seção
+    end
+    Full->>Full: concatena "## {heading}\n\n{conteúdo}" por seção<br/>+ agrega/deduplica sources de todas as seções
+    Full-->>F: {completion: Markdown multi-seção, sources}
+```
+
+Processamento **sequencial** (não `Promise.all`) — gerar todas as seções em paralelo bateria várias chamadas simultâneas no Groq, arriscando o rate limit (TPM 6000), mesma cautela já aplicada no resto do pipeline de RAG. O prompt de cada seção instrui explicitamente a não repetir o heading no início do texto gerado (e o use case ainda remove defensivamente se o modelo repetir mesmo assim, evitando heading duplicado na concatenação).
+
+Templates do editor (`report`, `meeting`, `contract`) reusam esse mesmo fluxo com um outline fixo por template, em vez de outline livre gerado pelo usuário.
 
 ## 6. Exportar / excluir dados pessoais (LGPD)
 
