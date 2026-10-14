@@ -1,0 +1,69 @@
+---
+id: rag-controller-reindex
+title: "Força o reprocessamento e reindexação de um documento"
+description: "Marca o documento como PENDING e reenfileira o job de extração/chunking/embedding na fila document-processing."
+sidebar_label: "Força o reprocessamento e reindexação de um documento"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFlM9u1DAQxl/FmgMCyW1ajrmVllZFolTbIg6rFZpNZhOziZ3ak6pL5Kfh0Afpi6FJsn+6BS5IcEpix575fv4+d5BTyLxp2DgLKXxEn6FyKndZW5NlpzJXO3X9/urs8upCkfJEdmEqMl5+++bmKidFD+zx6fHph0uysrVLY4uE6jnlubGFsqgWpsLNngeNdxmFYGxxCBpcQx6l/GUOKUywOHWWvasq8l89GZvTA2ho0GNNTD5AOu3AYk2QgvMFWvN9vVyDp7vWeMohZd+SBiOiGuQSNISspBoh7YBXjawO7I0tIEa92XDd419sNpOFoXE2UJD5t0fH8njOWYpCoKz1hle9ojmhJw/pdCY7MBYiFM7GfoJ6pSYnFzDTUBOXTlA1LnBPhktIIcHGJLs8QtI9xxOTtbqQdFuhMdlSDuTvB8SzbXs3InXQsm6yG/SL7nFIjy/nztfIkMKHL7eg13BK5qaXbOzC9dAMVzIxOblQ7zBbks3VgTp1NrQVHxoEvQfs5PpSiQdUMIGpRrHdaYk8d6yMZapMQZZJ7NqD0iBChrXHh0egIXOWMWNIO2lE4NVopZfx6M+df3oUU3saDYpDAsT0PaDB4lK5rbcJ2W+16yuR5f8Tp5E40wMnTYXGQtTQ+koaG6wyBWyMBG/XLKAhfZGmjV9kdi8ag2VmGkqxYTqFrptjoM++ilGG71ryq8FI9+gNzuW8px3kJsh7DukCq0B/gPd6MubvjfqdrnEQ7UoOHKtWvkDDklYvbweJ+T+svsMrzuJObq8/3Ug0sJXD2NwfeznqWf2yQNcNf9y6JdkYN/VYvqVUjD8BEBcH9w==
+sidebar_class_name: "post api-method"
+info_path: docs/api/rag-backend-consult-ia
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Força o reprocessamento e reindexação de um documento"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/organizations/{organizationId}/documents/{documentId}/reindex"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Marca o documento como PENDING e reenfileira o job de extração/chunking/embedding na fila document-processing.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./rag-controller-reindex.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./rag-controller-reindex.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./rag-controller-reindex.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

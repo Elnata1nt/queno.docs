@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"content":{"type":"string","example":"Conteúdo atualizado do documento..."},"title":{"type":"string","example":"Novo Título do Documento"}},"required":["content"],"title":"UpdateInternalDocumentDto"}}}}}

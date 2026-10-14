@@ -1,0 +1,1 @@
+{"parameters":[{"name":"days","required":true,"in":"query","schema":{"type":"string"}},{"name":"organizationId","required":true,"in":"query","schema":{"type":"string"}},{"name":"userId","required":true,"in":"query","schema":{"type":"string"}}]}

@@ -1,0 +1,69 @@
+---
+id: organization-rag-controller-chat-with-organization-stream
+title: "Pergunta em streaming cruzando todos os documentos da organização"
+description: "Resposta via Server-Sent Events (SSE). Aceita filtrar por um `documentId` específico dentro do escopo da organização."
+sidebar_label: "Pergunta em streaming cruzando todos os documentos da organização"
+hide_title: true
+hide_table_of_contents: true
+api: eJzFlMFu2zAMhl9F4GkFnKbd0bc064rs0i7p0EMQrIzF2GptSZXotKnhp9lhpz1FX2xg7K5pgu06XyzLFEV+/MkGNMUsGM/GWUhhStG7yKjWBtWMwprCYEaW1fmaLEf1YTY7PzpWo4wMo1qZkgMG5V1QdaVutcvqiixP9K2i6Cl7+bUymVOaLAentFMUM+ed0qhcyNGaZ3z5+fLDHUMCzlNACWOiIYXL/rdsTDEfO/FQlhS+ZwXyjeFi12LGgbCCBDwGrIgpREjnDVisCFJwO6YTDQkEeqhNIA0ph5oSMJK7Ry4ggZgVVCGkDfDGy+nIwdgc2nbRHaTIZ05vxGLfT+Ysk2X5hd6XJtteObyLArc5dO2Wd5SxxB0kfTYUIW3aBNhwKQajeP9VLjTOfmIHbdu2EkT0zsatLXw8OZXX+zKCmDHmQuEdSjUukGGRQEVcOAEt5d6C4wJSGKI3w11ccdi8p9cOpQCD+Eo8bkUiFy3kI6uD4c1MEu3iWxIGCn+yl6T6raRffHahQoYUvtxcQ/KKpmD22zQE3vQN+/kTVl7YCCZjV26Ls8c1HV2oM8zuyWo1UGNnY13ysUFI9gCNriZKtKKiiUwVKk1bNEvHylim0uRkmVTmKjUdXUACkmR39vT4BLpSYyalliCFYoXbIveau6KQ15ZRUaU6WMbmKgv1M1rtFDvtonJRvfaMLPe6Yj/q5k1f/7NR+wIxPfHQl2gstAnUoZQAOxnNAb2Rlt4VEiSQHjTirpYWCRQixnQOTbPESN9C2bay/VBT2HQKW2MwuJRizxvQJspaQ7rCMtI/cH2Y9p16pP6WQb+JdiPVxrKWL0jgnjaHI6RdtAkUhFqkPW96o3F33+BaXL05ORgF7W4DXl3ORPbLfqRUTsuZgI8yp/CxC8L5jqHMHNlroESb15iLbedTnt/z5Qzv
+sidebar_class_name: "post api-method"
+info_path: docs/api/rag-backend-consult-ia
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Pergunta em streaming cruzando todos os documentos da organização"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/api/organizations/{organizationId}/chat-stream"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Resposta via Server-Sent Events (SSE). Aceita filtrar por um `documentId` específico dentro do escopo da organização.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./organization-rag-controller-chat-with-organization-stream.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./organization-rag-controller-chat-with-organization-stream.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./organization-rag-controller-chat-with-organization-stream.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

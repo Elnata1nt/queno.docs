@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"title":{"type":"string","example":"Meu TCC - Introdução"},"content":{"type":"string","example":"Conteúdo inicial do documento..."}},"required":["title","content"],"title":"CreateInternalDocumentDto"}}}}}

@@ -1,0 +1,69 @@
+---
+id: rag-controller-download-document
+title: "Baixa o arquivo original do documento"
+description: "Documentos internos (sem upload de arquivo) são exportados como .docx; documentos de upload retornam o arquivo físico original."
+sidebar_label: "Baixa o arquivo original do documento"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE1v00AQ/SurOaBWWpLC0ZzaAlU5oVDEIYqqiXfqrGrvuLvjkmD513DmV/SPobHjJG2BCxLi5P3wvp335r1twVHKo6/Fc4AM3nLeVBSEk/FBKAZO5ihRZZq6ZHTGkcF41/h7Pjbp4TsbWtccBR0nk3PFZuI4X78xbo/jaDwcSTgGrAyPIObm4UfyORuOvvABywlY4Joiaj2XDjKYYXHOQSKXJcVrx1+DYo11goUaI1YkFBNk8xYCVgQZcCww+G8jjoVId42P5CCT2JAFr3RrlBVYSPmKKoSsBdnUejpJ9KGArrM7wJHRX4At9GCqOSRKuv/65EQ/jzugl0KivIleNj2jJWGkCNl8oQiChRLddSqZF2Z2egELCxXJilWzggZhZAUZTLH200M50rR9rE43HcmlabvnqcuD2sqK4v0g8WJf3ielOnAZi2wH/sp7u2S3g/ccKxTI4MOXK7CjOCuRuqfsww33onkpdWN2emHOML+l4MxLc84hNaVMPIJ9Itjpx0ujHjDJJ6EK1XDnK5QlS+/h0hcUhNSevVAWlMhw9tXkBCzkHARzgazVQmpOUmHQWratP0O/xgPTjmY1jvdGf1pX28OqRf+PVG31FlrLtC7RB+gsNLHUSgenzAFrr/k79ApYyJ5laWcX3X0UjJ1jFhZWnERR23aJiT7Hsut0+a6huBl8dI/R41LbPW/B+aRjB9kNlon+IOfRbBu/Y/M7YttFDBvtN5aNzsDCLW2ePw6a8n94+4Fg3aI7iO3FOw0GNtqM3evxJEW9VL/Eb9vhjyu+pdB1u+tE53pT1/0E9FERZw==
+sidebar_class_name: "get api-method"
+info_path: docs/api/rag-backend-consult-ia
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Baixa o arquivo original do documento"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/api/organizations/{organizationId}/documents/{documentId}/download"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Documentos internos (sem upload de arquivo) são exportados como .docx; documentos de upload retornam o arquivo físico original.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./rag-controller-download-document.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./rag-controller-download-document.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./rag-controller-download-document.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

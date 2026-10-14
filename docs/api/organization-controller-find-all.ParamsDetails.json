@@ -1,0 +1,1 @@
+{"parameters":[{"name":"filter","required":false,"in":"query","description":"Filtrar por dono ou apenas participante","schema":{"enum":["owner","member"],"type":"string"}}]}
